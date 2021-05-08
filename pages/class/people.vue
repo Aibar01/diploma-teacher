@@ -1,0 +1,60 @@
+<template>
+  <v-container fluid>
+    <v-row class="pl-4">
+      <v-col class="pb-0">
+        <div class="text-uppercase">Teacher</div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="py-0">
+        <v-card elevation="0" max-width="500">
+          <v-card-title class="pb-0">
+            <v-list-item class="pl-0 grow">
+              <v-list-item-avatar color="#10AFA7">
+                <img
+                  alt="Avatar"
+                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                />
+              </v-list-item-avatar>
+
+              <v-list-item-content>
+                <v-list-item-title> Aidyn Jomart </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row class="pl-4">
+      <v-col>
+        <div class="text-uppercase">Students</div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col v-for="i in 10" :key="i" cols="12" class="py-0">
+        <v-card elevation="0" max-width="500">
+          <v-card-title class="pb-0">
+            <v-list-item class="pl-0 grow">
+              <v-list-item-avatar color="#10AFA7">
+                <img
+                  alt="Avatar"
+                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                />
+              </v-list-item-avatar>
+
+              <v-list-item-content>
+                <v-list-item-title> Aidyn Jomart </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+export default {
+  layout: 'class',
+}
+</script>
