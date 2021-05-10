@@ -111,7 +111,7 @@
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
         <v-tab class="text-capitalize">Feed</v-tab>
-        <v-tab class="text-capitalize">Students Activity</v-tab>
+        <!-- <v-tab class="text-capitalize">Students Activity</v-tab> -->
       </v-tabs>
       <v-spacer />
       <v-text-field

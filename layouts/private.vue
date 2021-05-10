@@ -99,11 +99,15 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize">Stream</v-tab>
-        <v-tab class="text-capitalize">Classwork</v-tab>
-        <v-tab class="text-capitalize">People</v-tab>
-        <v-tab class="text-capitalize">Grades</v-tab>
-        <v-tab class="text-capitalize">About class</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('stream')">Stream</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('classwork')"
+          >Classwork</v-tab
+        >
+        <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('stream')">Grades</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('about')"
+          >About class</v-tab
+        >
       </v-tabs>
       <v-spacer />
       <v-btn color="#10AFA7" dark class="text-capitalize">
@@ -143,6 +147,11 @@ export default {
       right: true,
       title: 'Diploma',
     }
+  },
+  methods: {
+    goLink(path) {
+      this.$router.push(path)
+    },
   },
 }
 </script>

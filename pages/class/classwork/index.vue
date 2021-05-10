@@ -104,7 +104,7 @@
     </v-card>
 
     <v-card v-for="i in 4" :key="i" outlined max-width="500" class="mt-8">
-      <nuxt-link to="classwork/1">
+      <nuxt-link :to="`classwork/${i}`">
         <v-card-title>
           <v-list-item class="pl-0 grow">
             <v-list-item-avatar color="#10AFA7">
