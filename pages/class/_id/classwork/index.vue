@@ -15,7 +15,7 @@
           </template>
           <v-list>
             <template v-for="(item, i) in items">
-              <CardDialog :key="i" :item="item" :attrs="attrs" :on="on" />
+              <CardDialog :key="i" :item="item" @getItems="getItems" />
             </template>
           </v-list>
         </v-menu>
@@ -37,7 +37,7 @@
     </v-card>
 
     <v-card
-      v-for="i in classwork.classwork"
+      v-for="i in classworks.results"
       :key="i.id"
       outlined
       max-width="500"
@@ -132,19 +132,21 @@ export default {
   layout: 'class',
   async asyncData({ $axios, params }) {
     try {
-      const classwork = await $axios.$get(`classes/classwork/${params.id}/`)
+      const classworks = await $axios.$get(`classes/classworkes/`, {
+        params: { class: params.id },
+      })
       return {
-        classwork,
+        classworks,
       }
     } catch (err) {
-      return { classwork: {} }
+      return { classworks: [] }
     }
   },
   data() {
     return {
       dialog: false,
       closeOn: true,
-      classwork: {},
+      classworks: [],
       data: {
         title: 'Lesson 1',
         content: 'Welcome everyone to this NEW class of Scratch!',
@@ -152,10 +154,22 @@ export default {
       },
       items: [
         { title: 'Lesson', icon: 'mdi-circle' },
-        { title: 'Howework', icon: 'mdi-circle' },
+        { title: 'Homework', icon: 'mdi-circle' },
         { title: 'Material', icon: 'mdi-circle' },
       ],
     }
+  },
+  methods: {
+    async getItems() {
+      try {
+        this.classworks = await this.$axios.$get(`classes/classworkes/`, {
+          props: { class: this.$route.params.id },
+        })
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err)
+      }
+    },
   },
 }
 </script>

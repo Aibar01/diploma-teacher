@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-card outlined class="mx-auto" max-width="400">
+      <v-card outlined class="ml-3 mr-auto" max-width="400">
         <v-list-item two-line>
           <v-list-item-content>
             <v-list-item-title class="headline"> Classes </v-list-item-title>
@@ -12,7 +12,9 @@
           <v-row align="center">
             <v-col d-flex justify="center" align="center" cols="6">
               <v-row>
-                <v-col class="display-3" cols="12">4</v-col>
+                <v-col class="display-3" cols="12">{{
+                  $auth.user.number_of_classes
+                }}</v-col>
                 <v-col cols="12">Classes</v-col>
               </v-row>
             </v-col>
@@ -20,13 +22,17 @@
               <v-row>
                 <v-col cols="12">Public</v-col>
                 <v-col cols="12" class="body-1 pt-0">
-                  <strong>1 class</strong>
+                  <strong
+                    >{{ $auth.user.number_of_public_classes }} class</strong
+                  >
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="12">Private</v-col>
                 <v-col cols="12" class="body-1 pt-0">
-                  <strong>3 classes</strong>
+                  <strong
+                    >{{ $auth.user.number_of_private_classes }} classes</strong
+                  >
                 </v-col>
               </v-row>
             </v-col>
@@ -34,7 +40,7 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col>
+    <!-- <v-col>
       <v-card outlined class="mx-auto" max-width="400">
         <v-list-item two-line>
           <v-list-item-content>
@@ -67,6 +73,6 @@
           </v-row>
         </v-card-text>
       </v-card>
-    </v-col>
+    </v-col> -->
   </v-row>
 </template>

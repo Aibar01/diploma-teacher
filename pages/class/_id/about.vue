@@ -19,13 +19,21 @@
             <v-list-item class="pl-0 grow">
               <v-list-item-avatar color="#10AFA7">
                 <img
+                  v-if="$auth.user.avatar"
+                  alt="Avatar"
+                  :src="$auth.user.avatar"
+                />
+                <img
+                  v-else
                   alt="Avatar"
                   src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
                 />
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title> John Doe. </v-list-item-title>
+                <v-list-item-title>
+                  {{ $auth.user.first_name }} {{ $auth.user.last_name }}
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card-title>

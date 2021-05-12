@@ -2,19 +2,39 @@
   <v-card elevation="0" max-width="975" class="ml-auto mt-5">
     <v-container>
       <v-row>
-        <v-col v-for="(item, i) in items" :key="i" cols="12">
+        <v-col v-for="item in items.results" :key="item.id" cols="12">
           <v-card elevation="0">
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
-                <Avatar />
+                <v-list-item two-line>
+                  <v-list-item-avatar rounded>
+                    <img v-if="$auth.user.avatar" :src="$auth.user.avatar" />
+                    <img
+                      v-else
+                      src="https://randomuser.me/api/portraits/women/81.jpg"
+                    />
+                  </v-list-item-avatar>
+
+                  <v-list-item-action-text>
+                    <v-list-item-title
+                      >{{ $auth.user.first_name }}
+                      {{ $auth.user.last_name }}</v-list-item-title
+                    >
+                  </v-list-item-action-text>
+
+                  <v-list-item-action>
+                    <v-list-item-title class="grey--text">
+                      Programming teacher
+                    </v-list-item-title>
+                  </v-list-item-action>
+                </v-list-item>
+
                 <v-card-title class="headline">
                   {{ item.title }}
                 </v-card-title>
 
                 <v-card-subtitle>
-                  We are about to start the new year 2021 and the last year has
-                  been quite different and influenced the way we designed a lot.
-                  But let’s not talk about the last year.
+                  {{ item.text }}
                 </v-card-subtitle>
 
                 <v-card-actions>
@@ -22,7 +42,11 @@
                     <v-icon small class="pb-1">
                       mdi-calendar-blank-outline
                     </v-icon>
-                    Sep 8, 2020
+                    {{
+                      $moment(new Date(+item.created_date * 1000)).format(
+                        'MMM D, YYYY'
+                      )
+                    }}
                   </v-card-subtitle>
 
                   <v-spacer></v-spacer>
@@ -52,25 +76,19 @@
 </template>
 
 <script>
-import Avatar from '../search/Avatar'
-
 export default {
-  components: {
-    Avatar,
+  data() {
+    return {
+      items: [],
+    }
   },
-  data: () => ({
-    items: [
-      {
-        src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-        title: 'Here will be One lined Post title 2021',
-        teacher: 'Jane Smith',
-      },
-      {
-        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-        title: 'Here will be One lined Post title 2021',
-        teacher: 'Jane Smith',
-      },
-    ],
-  }),
+  async fetch() {
+    try {
+      this.items = await this.$axios.$get('news/news/')
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err)
+    }
+  },
 }
 </script>

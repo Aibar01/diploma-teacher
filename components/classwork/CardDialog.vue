@@ -43,7 +43,7 @@
                     outlined
                   ></v-file-input>
                 </v-col>
-                <v-col v-if="item.title == 'Howework'" cols="12">
+                <v-col v-if="item.title == 'Homework'" cols="12">
                   <v-text-field
                     v-model="newItem.due_date"
                     outlined
@@ -82,6 +82,7 @@ export default {
         uploaded_file: '',
         due_date: '',
       },
+      classworks: [],
     }
   },
   methods: {
@@ -97,13 +98,13 @@ export default {
       }
 
       formData.append('scratch_class', this.$route.params.id)
+      formData.append('classwork_type', this.item.title.toLowerCase())
 
       try {
-        await this.$axios.$post(`classes/${type}/`, formData, config)
-        this.classwork = await this.$axios.$get(
-          `classes/classwork/${this.$route.params.id}/`
-        )
+        await this.$axios.$post(`classes/classworkes/`, formData, config)
+        this.classwork = await this.$axios.$get(`classes/classworkes/`)
         this.dialog = false
+        this.$emit('getItems')
       } catch (err) {
         // eslint-disable-next-line no-console
         console.log(err)
