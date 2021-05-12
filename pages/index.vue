@@ -2,7 +2,7 @@
   <div>
     <NoActivites v-if="noActivites" />
     <div v-else>
-      <div class="d-flex align-center ml-16 mt-10">
+      <div v-if="$auth.loggedIn" class="d-flex align-center ml-16 mt-10">
         <div class="headline">Discovered something new?</div>
         <v-btn
           to="news/create"
@@ -15,7 +15,9 @@
       <div class="ml-12 mt-10">
         <div class="text-uppercase">Other Teachers Sharing</div>
       </div>
-      <PostList v-for="item in items" :key="item" />
+      <div v-for="item in items.results" :key="item.id">
+        <PostList :item="item" />
+      </div>
     </div>
   </div>
 </template>
@@ -29,10 +31,17 @@ export default {
     NoActivites,
     PostList,
   },
+  async asyncData({ $axios }) {
+    try {
+      const items = await $axios.$get(`/news/news/`)
+      return { items }
+    } catch (e) {
+      return { items: [] }
+    }
+  },
   data() {
     return {
       noActivites: false,
-      items: [1, 2, 3, 4],
     }
   },
 }

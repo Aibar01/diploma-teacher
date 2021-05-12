@@ -2,6 +2,13 @@
   <div>
     <v-card>
       <v-img
+        v-if="$auth.user.cover_image"
+        max-height="224"
+        :src="$auth.user.cover_image"
+      >
+      </v-img>
+      <v-img
+        v-else
         max-height="224"
         src="https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png"
       >
@@ -22,20 +29,26 @@
             <div id="avatar" class="pt-10 px-10">
               <v-avatar size="120">
                 <img
+                  v-if="$auth.user.avatar"
                   alt="user"
-                  src="https://img.freepik.com/free-photo/handsome-young-businessman-in-shirt-and-eyeglasses_85574-6228.jpg?size=626&ext=jpg"
+                  :src="$auth.user.avatar"
+                />
+                <img
+                  v-else
+                  alt="user"
+                  src="https://randomuser.me/api/portraits/women/81.jpg"
                 />
               </v-avatar>
               <v-card-subtitle class="title black--text pb-0"
-                >Айбар Беккожаев</v-card-subtitle
+                >{{ $auth.user.first_name }}
+                {{ $auth.user.last_name }}</v-card-subtitle
               >
               <v-card-subtitle class="pt-2"
                 >Programming мұғалым</v-card-subtitle
               >
               <v-divider></v-divider>
               <v-card-text d-flex align="start">
-                I am 4 graded student at Haileyberry School. I have a big dream
-                in my life - to become Super Cool Game Developer.
+                {{ $auth.user.bio }}
               </v-card-text>
               <v-card-text d-flex align="center">
                 <v-btn

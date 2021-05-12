@@ -28,6 +28,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -36,10 +37,45 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://185.111.106.155/', // Used as fallback if no runtime config is provided
+  },
+
+  moment: {
+    timezone: true,
+    locales: [],
+  },
+
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/',
+      home: '/',
+    },
+    strategies: {
+      local: {
+        token: {
+          property: 'access',
+          // required: true,
+          type: 'Bearer',
+        },
+        user: {
+          property: false,
+          // autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/accounts/api/token/', method: 'post' },
+          // logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/accounts/profile/', method: 'get' },
+        },
+      },
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

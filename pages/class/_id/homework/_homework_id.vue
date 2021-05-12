@@ -50,6 +50,7 @@
 <script>
 export default {
   layout: 'homework',
+  middleware: 'auth',
   data() {
     return {
       data: {

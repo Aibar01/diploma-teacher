@@ -2,88 +2,21 @@
   <div class="mt-10 pl-5">
     <v-card class="pb-5" elevation="0" max-width="900">
       <v-card-title class="pb-0">
-        <v-menu transition="slide-y-transition" offset-y bottom>
+        <v-menu
+          :close-on-content-click="closeOn"
+          transition="slide-y-transition"
+          offset-y
+          bottom
+        >
           <template #activator="{ on, attrs }">
             <v-btn class="py-4" color="#10AFA7" dark v-bind="attrs" v-on="on">
               <v-icon class="pr-2">mdi-plus-circle-outline</v-icon> Create
             </v-btn>
           </template>
           <v-list>
-            <v-list-item v-for="(item, i) in items" :key="i">
-              <v-dialog v-model="dialog" max-width="600px">
-                <template #activator="{ on, attrs }">
-                  <v-list-item-title v-bind="attrs" v-on="on">
-                    <v-icon color="#10AFA7">{{ item.icon }}</v-icon>
-                    {{ item.title }}
-                  </v-list-item-title>
-                </template>
-                <v-card>
-                  <v-card-title class="pl-10">
-                    <span class="headline font-weight-bold"
-                      >Create {{ item.title }}</span
-                    >
-                  </v-card-title>
-                  <v-card-text>
-                    <v-container>
-                      <v-row>
-                        <v-col cols="12">
-                          <v-text-field
-                            outlined
-                            label="Title"
-                            placeholder="Enter title"
-                            required
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-textarea
-                            outlined
-                            name="input-7-4"
-                            label="Description"
-                            placeholder="(optional)"
-                          ></v-textarea>
-                        </v-col>
-                        <v-col cols="12" class="d-flex">
-                          <v-file-input
-                            color="#10AFA7"
-                            label="Add"
-                            outlined
-                          ></v-file-input>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-text-field
-                            outlined
-                            label="Points"
-                            placeholder="100"
-                            required
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-text-field
-                            outlined
-                            label="Due to"
-                            placeholder="24 March 2021, 00:00"
-                            required
-                          ></v-text-field>
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                  </v-card-text>
-                  <v-card-actions class="pb-10 pl-10">
-                    <v-btn
-                      class="text-capitalize"
-                      color="#10AFA7"
-                      dark
-                      @click="dialog = false"
-                    >
-                      Create lesson
-                    </v-btn>
-                    <v-btn class="text-capitalize" text @click="dialog = false">
-                      Cancel
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-list-item>
+            <template v-for="(item, i) in items">
+              <CardDialog :key="i" :item="item" :attrs="attrs" :on="on" />
+            </template>
           </v-list>
         </v-menu>
       </v-card-title>
@@ -103,7 +36,13 @@
       </v-card-text>
     </v-card>
 
-    <v-card v-for="i in 4" :key="i" outlined max-width="500" class="mt-8">
+    <v-card
+      v-for="i in classwork.classwork"
+      :key="i.id"
+      outlined
+      max-width="500"
+      class="mt-8"
+    >
       <nuxt-link :to="`classwork/${i}`">
         <v-card-title>
           <v-list-item class="pl-0 grow">
@@ -116,8 +55,12 @@
             <v-list-item-content>
               <div class="d-flex">
                 <div>
-                  <v-list-item-title>{{ data.title }}</v-list-item-title>
-                  <v-list-item-subtitle>{{ data.date }}</v-list-item-subtitle>
+                  <v-list-item-title>{{ i.title }}</v-list-item-title>
+                  <v-list-item-subtitle>{{
+                    $moment(new Date(+i.created_at * 1000)).format(
+                      'D MMM YYYY, h:mm'
+                    )
+                  }}</v-list-item-subtitle>
                 </div>
                 <v-spacer></v-spacer>
                 <v-menu offset-y>
@@ -171,17 +114,37 @@
             </v-list-item-content>
           </v-list-item>
         </v-card-title>
+        <v-card-text v-if="i.description" class="font-weight-bold">
+          {{ i.description }}
+        </v-card-text>
       </nuxt-link>
     </v-card>
   </div>
 </template>
 
 <script>
+import CardDialog from '../../../../components/classwork/CardDialog'
+
 export default {
+  components: {
+    CardDialog,
+  },
   layout: 'class',
+  async asyncData({ $axios, params }) {
+    try {
+      const classwork = await $axios.$get(`classes/classwork/${params.id}/`)
+      return {
+        classwork,
+      }
+    } catch (err) {
+      return { classwork: {} }
+    }
+  },
   data() {
     return {
       dialog: false,
+      closeOn: true,
+      classwork: {},
       data: {
         title: 'Lesson 1',
         content: 'Welcome everyone to this NEW class of Scratch!',

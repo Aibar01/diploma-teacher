@@ -56,5 +56,6 @@
 <script>
 export default {
   layout: 'class',
+  middleware: 'auth',
 }
 </script>
