@@ -114,7 +114,21 @@
         >
       </v-tabs>
       <v-spacer />
+      <v-btn
+        v-if="
+          $auth.user.classes.find(
+            (obj) => obj.id == $route.params.id && obj.class_type == 'private'
+          )
+        "
+        color="#10AFA7"
+        dark
+        class="text-capitalize"
+        :to="`add-student`"
+      >
+        Invite people
+      </v-btn>
       <v-text-field
+        v-else
         class="pt-4 pr-6"
         label="Search classes, teachers"
         prepend-icon="mdi-magnify"
