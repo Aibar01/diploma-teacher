@@ -19,8 +19,6 @@
                 </v-list-item-title>
                 <v-list-item-subtitle> Writing new </v-list-item-subtitle>
               </div>
-              <v-spacer></v-spacer>
-              <v-btn dark color="#10AFA7">PUBLISH</v-btn>
             </div>
           </v-list-item-content>
         </v-list-item>

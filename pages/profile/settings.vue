@@ -34,6 +34,7 @@
                 color="#10AFA7"
                 dark
                 type="submit"
+                elevation="0"
               >
                 Save
               </v-btn>
@@ -69,6 +70,7 @@
                 dark
                 :disabled="user.avatar == '' && user.cover_image == ''"
                 type="submit"
+                elevation="0"
               >
                 Save
               </v-btn>
@@ -87,7 +89,12 @@
               ></v-text-field>
             </v-col>
             <v-col class="pt-0 pb-10" cols="12">
-              <v-btn class="font-weight-bold" color="#BDBDBD" disabled>
+              <v-btn
+                elevation="0"
+                class="font-weight-bold"
+                color="#BDBDBD"
+                disabled
+              >
                 Save
               </v-btn>
             </v-col>
@@ -117,6 +124,7 @@
                 class="font-weight-bold text-capitalize"
                 color="#10AFA7"
                 dark
+                elevation="0"
               >
                 Save
               </v-btn>

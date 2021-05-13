@@ -24,13 +24,15 @@
 
                   <v-list-item-action>
                     <v-list-item-title class="grey--text">
-                      Programming teacher
+                      мұғалым
                     </v-list-item-title>
                   </v-list-item-action>
                 </v-list-item>
 
                 <v-card-title class="headline">
-                  {{ item.title }}
+                  <nuxt-link :to="`/news/${item.id}`">{{
+                    item.title
+                  }}</nuxt-link>
                 </v-card-title>
 
                 <v-card-subtitle>

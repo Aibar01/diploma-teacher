@@ -132,7 +132,7 @@
         <template v-if="$auth.loggedIn">
           <v-list-item v-for="item in $auth.user.classes" :key="item.id" link>
             <v-list-item-icon>
-              <v-icon>mdi-circle</v-icon>
+              <v-icon>mdi-google-classroom</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
@@ -228,10 +228,10 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="dialog = false">
+              <v-btn color="#10AFA7" text @click="dialog = false">
                 Close
               </v-btn>
-              <v-btn color="blue darken-1" text type="submit"> Register </v-btn>
+              <v-btn color="#10AFA7" text type="submit"> Register </v-btn>
             </v-card-actions>
           </v-form>
         </v-card>
@@ -276,10 +276,10 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="loginDialog = false">
+              <v-btn color="#10AFA7" text @click="loginDialog = false">
                 Close
               </v-btn>
-              <v-btn color="blue darken-1" text type="submit"> Login </v-btn>
+              <v-btn color="#10AFA7" text type="submit"> Login </v-btn>
             </v-card-actions>
           </v-form>
         </v-card>
@@ -314,6 +314,11 @@ export default {
           title: 'Notifications',
           icon: 'mdi-bell',
           to: '/notification',
+        },
+        {
+          title: 'About',
+          icon: 'mdi-information',
+          to: '/settings/about',
         },
       ],
       miniVariant: false,
@@ -404,21 +409,21 @@ export default {
           imageFormData,
           config
         )
+
+        await this.$auth.fetchUser()
+
+        this.classDialog = false
+        this.teacher_class = {
+          class_type: '',
+          class_name: '',
+          subject: '',
+          students: [],
+        }
+        this.class_image = null
       } catch (err) {
         // eslint-disable-next-line no-console
         console.log(err)
       }
-
-      this.classDialog = false
-      this.teacher_class = {
-        class_type: '',
-        class_name: '',
-        subject: '',
-        students: [],
-      }
-      this.class_image = null
-
-      await this.$auth.fetchUser()
     },
   },
 }
@@ -438,6 +443,10 @@ export default {
 .v-application .primary--text {
   color: #10afa7 !important;
   caret-color: #10afa7 !important;
+}
+
+img {
+  object-fit: cover;
 }
 
 /* .v-text-field > .v-input__control > .v-input__slot:before {

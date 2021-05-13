@@ -26,6 +26,9 @@
               </v-list-item-content>
             </v-list-item>
           </v-card-title>
+          <v-card-text v-if="item.description" class="font-weight-bold">
+            {{ item.description }}
+          </v-card-text>
           <v-card-text v-if="item.uploaded_file">
             <div class="d-flex">
               <v-card class="mb-4" outlined>

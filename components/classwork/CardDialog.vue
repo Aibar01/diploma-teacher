@@ -109,10 +109,21 @@
             </v-container>
           </v-card-text>
           <v-card-actions class="pb-10 pl-10">
-            <v-btn class="text-capitalize" color="#10AFA7" dark type="submit">
+            <v-btn
+              elevation="0"
+              class="text-capitalize"
+              color="#10AFA7"
+              dark
+              type="submit"
+            >
               Create lesson
             </v-btn>
-            <v-btn class="text-capitalize" text @click="dialog = false">
+            <v-btn
+              elevation="0"
+              class="text-capitalize"
+              text
+              @click="dialog = false"
+            >
               Cancel
             </v-btn>
           </v-card-actions>
@@ -129,8 +140,8 @@ export default {
   data() {
     return {
       dialog: false,
-      date: new Date().toISOString().substr(0, 10),
-      time: '12:00',
+      date: '',
+      time: '',
       menu: false,
       menu2: false,
       newItem: {
@@ -144,7 +155,10 @@ export default {
   },
   methods: {
     async createItem(type) {
-      this.newItem.due_date = this.date.toString() + ' ' + this.time.toString()
+      if (this.date && this.time) {
+        this.newItem.due_date =
+          this.date.toString() + ' ' + this.time.toString()
+      }
 
       type = type.toLowerCase()
 

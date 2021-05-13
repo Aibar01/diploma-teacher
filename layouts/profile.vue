@@ -81,6 +81,10 @@ export default {
           title: 'Notifications',
           to: '/settings/notification',
         },
+        {
+          title: 'about',
+          to: '/settings/about',
+        },
       ],
       miniVariant: false,
       right: true,
@@ -116,5 +120,9 @@ export default {
 a {
   text-decoration: none;
   color: #353232 !important;
+}
+
+img {
+  object-fit: cover;
 }
 </style>

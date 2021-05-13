@@ -31,6 +31,7 @@
                   dark
                   class="text-capitalize ml-5"
                   type="submit"
+                  elevation="0"
                   >Announce</v-btn
                 >
               </div>

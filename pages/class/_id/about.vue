@@ -54,7 +54,13 @@
         </v-col>
       </v-row>
       <v-card-actions>
-        <v-btn class="text-capitalize" color="#10AFA7" dark type="submit">
+        <v-btn
+          elevation="0"
+          class="text-capitalize"
+          color="#10AFA7"
+          dark
+          type="submit"
+        >
           Save
         </v-btn>
       </v-card-actions>

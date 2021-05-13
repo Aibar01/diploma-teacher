@@ -9,8 +9,6 @@ export default {
   components: {
     Profile,
   },
-  layout(context) {
-    return 'detail'
-  },
+  layout: 'detail',
 }
 </script>

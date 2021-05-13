@@ -136,6 +136,7 @@
         "
         color="#10AFA7"
         dark
+        style="color: white !important"
         class="text-capitalize"
         :to="`add-student`"
       >
