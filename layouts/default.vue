@@ -84,7 +84,7 @@
                           </v-col>
                           <v-col cols="12" class="pt-0">
                             <v-file-input
-                              v-model="teacher_class.class_image"
+                              v-model="class_image"
                               accept="image/*"
                               show-size
                               counter
@@ -318,9 +318,9 @@ export default {
       teacher_class: {
         class_type: '',
         class_name: '',
-        class_image: '',
         subject: '',
       },
+      class_image: null,
     }
   },
   methods: {
@@ -371,13 +371,21 @@ export default {
       const config = {
         headers: { 'content-type': 'multipart/form-data' },
       }
-      const formData = new FormData()
-      for (const data in this.teacher_class) {
-        formData.append(data, this.teacher_class[data])
-      }
-      formData.append('students', this.$auth.user.id)
+
       try {
-        await this.$axios.$post('classes/class/', formData, config)
+        const response = await this.$axios.$post('classes/class/', {
+          ...this.teacher_class,
+        })
+
+        const imageFormData = new FormData()
+
+        imageFormData.append('class_image', this.class_image)
+
+        await this.$axios.$patch(
+          `classes/class-image/${response.id}/`,
+          imageFormData,
+          config
+        )
       } catch (err) {
         // eslint-disable-next-line no-console
         console.log(err)
@@ -387,10 +395,10 @@ export default {
       this.teacher_class = {
         class_type: '',
         class_name: '',
-        class_image: '',
         subject: '',
         students: [],
       }
+      this.class_image = null
 
       await this.$auth.fetchUser()
     },
