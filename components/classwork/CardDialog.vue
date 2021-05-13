@@ -44,13 +44,66 @@
                   ></v-file-input>
                 </v-col>
                 <v-col v-if="item.title == 'Homework'" cols="12">
-                  <v-text-field
-                    v-model="newItem.due_date"
-                    outlined
-                    label="Due to"
-                    placeholder="24 March 2021, 00:00"
-                    required
-                  ></v-text-field>
+                  <v-menu
+                    ref="menu"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :return-value.sync="date"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="auto"
+                  >
+                    <template #activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="date"
+                        label="Due date"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker v-model="date" no-title scrollable>
+                      <v-spacer></v-spacer>
+                      <v-btn text color="#10AFA7" @click="menu = false">
+                        Cancel
+                      </v-btn>
+                      <v-btn
+                        text
+                        color="#10AFA7"
+                        @click="$refs.menu.save(date)"
+                      >
+                        OK
+                      </v-btn>
+                    </v-date-picker>
+                  </v-menu>
+                </v-col>
+                <v-col v-if="item.title == 'Homework'" cols="12">
+                  <v-menu
+                    ref="time"
+                    v-model="menu2"
+                    :close-on-content-click="false"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="auto"
+                  >
+                    <template #activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="time"
+                        label="Due time"
+                        prepend-icon="mdi-watch"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-time-picker v-model="time" ampm-in-title format="ampm">
+                      <v-spacer></v-spacer>
+                      <v-btn text color="#10AFA7" @click="menu2 = false">
+                        OK
+                      </v-btn>
+                    </v-time-picker>
+                  </v-menu>
                 </v-col>
               </v-row>
             </v-container>
@@ -76,10 +129,14 @@ export default {
   data() {
     return {
       dialog: false,
+      date: new Date().toISOString().substr(0, 10),
+      time: '12:00',
+      menu: false,
+      menu2: false,
       newItem: {
         title: '',
         description: '',
-        uploaded_file: '',
+        uploaded_file: null,
         due_date: '',
       },
       classworks: [],
@@ -87,6 +144,8 @@ export default {
   },
   methods: {
     async createItem(type) {
+      this.newItem.due_date = this.date.toString() + ' ' + this.time.toString()
+
       type = type.toLowerCase()
 
       const config = {
@@ -104,6 +163,12 @@ export default {
         await this.$axios.$post(`classes/classworkes/`, formData, config)
         this.classwork = await this.$axios.$get(`classes/classworkes/`)
         this.dialog = false
+        this.newItem = {
+          title: '',
+          description: '',
+          uploaded_file: '',
+          due_date: '',
+        }
         this.$emit('getItems')
       } catch (err) {
         // eslint-disable-next-line no-console

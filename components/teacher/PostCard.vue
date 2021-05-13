@@ -28,7 +28,6 @@
         </NuxtLink>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-icon>mdi-heart-outline</v-icon>
     </v-card-actions>
   </v-card>
 </template>

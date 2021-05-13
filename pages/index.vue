@@ -9,6 +9,7 @@
           dark
           color="#10AFA7"
           class="text-capitalize ml-12"
+          elevation="0"
           >Share news</v-btn
         >
       </div>

@@ -50,10 +50,6 @@
                   </v-card-subtitle>
 
                   <v-spacer></v-spacer>
-
-                  <v-card-subtitle class="pt-4 pb-6">
-                    <v-icon class="pb-1"> mdi-heart-outline </v-icon>
-                  </v-card-subtitle>
                 </v-card-actions>
               </div>
 

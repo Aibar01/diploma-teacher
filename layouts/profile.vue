@@ -32,7 +32,14 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+      outlined
+      elevation="0"
+      color="#fff"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title
         v-if="$route.path.includes('notification')"
@@ -68,12 +75,10 @@ export default {
       items: [
         {
           title: 'Profile',
-          icon: 'mdi-view-dashboard',
           to: '/profile/settings',
         },
         {
           title: 'Notifications',
-          icon: 'mdi-image',
           to: '/settings/notification',
         },
       ],

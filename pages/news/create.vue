@@ -44,7 +44,14 @@
               required
               placeholder="Type something"
             ></v-textarea>
-            <v-btn type="submit"> Share News </v-btn>
+            <v-btn
+              dark
+              color="#10AFA7"
+              class="text-capitalize"
+              type="submit"
+              elevation="0"
+              >Share news</v-btn
+            >
           </v-form>
         </v-card-actions>
       </v-card-title>

@@ -10,7 +10,9 @@
       <v-list-item class="py-2">
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
-            <v-icon>mdi-arrow-left</v-icon><NuxtLink to="/"> Back </NuxtLink>
+            <nuxt-link color="#fff" :to="`/class/${$route.params.id}/classwork`"
+              ><v-icon>mdi-arrow-left</v-icon> Back</nuxt-link
+            >
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

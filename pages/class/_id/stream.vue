@@ -39,7 +39,6 @@
         </v-list-item>
       </v-card-title>
     </v-card>
-
     <v-card v-if="announcements == []" max-width="500" outlined>
       <v-card-text>
         <p class="headline text--primary">Communicate with your students</p>
@@ -83,7 +82,9 @@
                   >{{ $auth.user.first_name }}
                   {{ $auth.user.last_name }}</v-list-item-title
                 >
-                <v-list-item-subtitle>{{ data.date }}</v-list-item-subtitle>
+                <v-list-item-subtitle
+                  >12 Mar 2021 at 12:01</v-list-item-subtitle
+                >
               </div>
               <v-spacer></v-spacer>
               <v-menu close-on-content-click="true" offset-y>
@@ -215,11 +216,6 @@ export default {
       announcement: '',
       editText: '',
       announcements: [],
-      data: {
-        title: 'A idyn Jomart',
-        content: 'Welcome everyone to this NEW class of Scratch!',
-        date: '12 Mar 2021 at 12:01',
-      },
       items: [
         { title: 'Move to top' },
         { title: 'Copy link' },

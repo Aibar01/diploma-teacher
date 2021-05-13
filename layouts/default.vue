@@ -53,7 +53,7 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              <v-dialog v-model="classDialog" persistent max-width="600px">
+              <v-dialog v-model="classDialog" max-width="600px">
                 <template #activator="{ on, attrs }">
                   <div v-bind="attrs" v-on="on">Create Class</div>
                 </template>
@@ -144,7 +144,14 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+      outlined
+      elevation="0"
+      color="#fff"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
@@ -158,7 +165,12 @@
         prepend-icon="mdi-magnify"
       ></v-text-field>
 
-      <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-dialog
+        v-if="!$auth.loggedIn"
+        v-model="dialog"
+        persistent
+        max-width="600px"
+      >
         <template #activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on"> Register </v-btn>
         </template>
@@ -225,7 +237,12 @@
         </v-card>
       </v-dialog>
 
-      <v-dialog v-model="loginDialog" persistent max-width="600px">
+      <v-dialog
+        v-if="!$auth.loggedIn"
+        v-model="loginDialog"
+        persistent
+        max-width="600px"
+      >
         <template #activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on"> Login </v-btn>
         </template>
@@ -319,6 +336,7 @@ export default {
         class_type: '',
         class_name: '',
         subject: '',
+        students: [],
       },
       class_image: null,
     }

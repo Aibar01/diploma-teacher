@@ -43,7 +43,7 @@
       max-width="500"
       class="mt-8"
     >
-      <nuxt-link :to="`classwork/${i}`">
+      <nuxt-link :to="`classwork/${i.id}`">
         <v-card-title>
           <v-list-item class="pl-0 grow">
             <v-list-item-avatar color="#10AFA7">
@@ -117,6 +117,10 @@
         <v-card-text v-if="i.description" class="font-weight-bold">
           {{ i.description }}
         </v-card-text>
+        <v-card-text v-if="i.due_date" class="font-weight-bold">
+          Due to
+          {{ $moment(new Date(+i.due_date * 1000)).format('D MMM YYYY, h:mm') }}
+        </v-card-text>
       </nuxt-link>
     </v-card>
   </div>
@@ -130,6 +134,7 @@ export default {
     CardDialog,
   },
   layout: 'class',
+  middleware: 'auth',
   async asyncData({ $axios, params }) {
     try {
       const classworks = await $axios.$get(`classes/classworkes/`, {
@@ -163,7 +168,7 @@ export default {
     async getItems() {
       try {
         this.classworks = await this.$axios.$get(`classes/classworkes/`, {
-          props: { class: this.$route.params.id },
+          params: { class: this.$route.params.id },
         })
       } catch (err) {
         // eslint-disable-next-line no-console

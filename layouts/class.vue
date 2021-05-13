@@ -8,8 +8,15 @@
       app
     >
       <v-list-item class="py-2">
-        <v-list-item-content>
-          <v-list-item-title>Aibar Bekkozhayev</v-list-item-title>
+        <v-list-item-content v-if="$auth.loggedIn">
+          <nuxt-link to="/profile"
+            ><v-list-item-title>{{
+              $auth.user.email
+            }}</v-list-item-title></nuxt-link
+          >
+        </v-list-item-content>
+        <v-list-item-content v-else>
+          <v-list-item-title>Profile</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -95,10 +102,17 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+      outlined
+      elevation="0"
+      color="#fff"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
-        <v-tabs-slider color="#353232"></v-tabs-slider>
+        <v-tabs-slider v-model="model" color="#353232"></v-tabs-slider>
         <v-tab class="text-capitalize" @click="goLink('stream')">
           Stream
         </v-tab>
@@ -106,9 +120,9 @@
           >Classwork</v-tab
         >
         <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
-        <v-tab class="text-capitalize" @click="goLink('classwork')"
+        <!-- <v-tab class="text-capitalize" @click="goLink('classwork')"
           >Grades</v-tab
-        >
+        > -->
         <v-tab class="text-capitalize" @click="goLink('about')"
           >About class</v-tab
         >
@@ -167,6 +181,16 @@ export default {
       right: true,
       title: 'Diploma',
     }
+  },
+  computed: {
+    model() {
+      const model = this.$route.path.substring(
+        this.$route.path.lastIndexOf('/') + 1
+      )
+      // eslint-disable-next-line no-console
+      console.log(model.charAt(0).toUpperCase() + model.slice(1))
+      return model.charAt(0).toUpperCase() + model.slice(1)
+    },
   },
   methods: {
     goLink(path) {
