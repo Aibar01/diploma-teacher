@@ -20,41 +20,25 @@
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
           <v-list-item-content>
-            <NuxtLink :to="item.to">
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </NuxtLink>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
       outlined
       elevation="0"
       color="#fff"
+      :clipped-left="clipped"
+      fixed
+      app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title
-        v-if="$route.path.includes('notification')"
-        class="font-weight-bold"
-        >Notifications settings</v-toolbar-title
+      <v-toolbar-title class="font-weight-bold headline"
+        >Profile Settings</v-toolbar-title
       >
-      <v-toolbar-title v-else class="font-weight-bold"
-        >Profile settings</v-toolbar-title
-      >
-      <v-spacer />
-      <v-text-field
-        class="pt-4 pr-6"
-        label="Search classes, teachers"
-        prepend-icon="mdi-magnify"
-      ></v-text-field>
+
+      <v-spacer></v-spacer>
     </v-app-bar>
     <v-main>
       <nuxt />
@@ -67,24 +51,15 @@
 
 <script>
 export default {
+  middleware: ['auth'],
   data() {
     return {
       clipped: false,
       drawer: true,
       fixed: true,
       items: [
-        {
-          title: 'Profile',
-          to: '/profile/settings',
-        },
-        {
-          title: 'Notifications',
-          to: '/settings/notification',
-        },
-        {
-          title: 'about',
-          to: '/settings/about',
-        },
+        { title: 'Profile', icon: 'mdi-view-dashboard' },
+        { title: 'Notifications', icon: 'mdi-image' },
       ],
       miniVariant: false,
       right: true,
@@ -99,7 +74,7 @@ export default {
   font-family: 'Rubik', sans-serif;
 }
 
-/* .v-input--selection-controls .v-input__control {
+.v-input--selection-controls .v-input__control {
   width: 100%;
 }
 .v-tab {
@@ -108,18 +83,6 @@ export default {
 .v-application .primary--text {
   color: #353232 !important;
   caret-color: #353232 !important;
-} */
-
-/* .v-text-field > .v-input__control > .v-input__slot:before {
-  border-color: transparent !important;
-}
-.v-text-field > .v-input__control > .v-input__slot:hover {
-  border-color: transparent !important;
-} */
-
-a {
-  text-decoration: none;
-  color: #353232 !important;
 }
 
 img {

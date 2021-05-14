@@ -42,14 +42,8 @@
       color="#fff"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title
-        v-if="$route.path.includes('faq')"
-        class="font-weight-bold"
-        >Frequently Asked Questions</v-toolbar-title
-      >
-      <v-toolbar-title v-else class="font-weight-bold"
-        >About App</v-toolbar-title
-      >
+
+      <v-toolbar-title class="font-weight-bold">Detail</v-toolbar-title>
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
@@ -73,16 +67,7 @@ export default {
       clipped: false,
       drawer: true,
       fixed: true,
-      items: [
-        {
-          title: 'FAQ',
-          to: '/settings/faq',
-        },
-        {
-          title: 'Contacts',
-          to: '/settings/about',
-        },
-      ],
+      items: [],
       miniVariant: false,
       right: true,
       title: 'Diploma',

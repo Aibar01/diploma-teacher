@@ -46,6 +46,6 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
-  color: #10afa7;
+  color: #10afa7 !important;
 }
 </style>
