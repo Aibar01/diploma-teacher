@@ -11,14 +11,14 @@
             <v-col cols="12">
               <v-text-field
                 v-model="user.first_name"
-                label="First Name"
+                label="Аты"
                 outlined
               ></v-text-field>
             </v-col>
             <v-col cols="12">
               <v-text-field
                 v-model="user.last_name"
-                label="Last Name"
+                label="Тегі"
                 outlined
               ></v-text-field>
             </v-col>
@@ -26,7 +26,7 @@
             <v-select :items="items" label="Job position" outlined></v-select>
           </v-col> -->
             <v-col class="pb-0" cols="12">
-              <v-textarea v-model="user.bio" outlined label="Bio"></v-textarea>
+              <v-textarea v-model="user.bio" outlined label="Био"></v-textarea>
             </v-col>
             <v-col class="pt-0 pb-10" cols="12">
               <v-btn
@@ -36,7 +36,7 @@
                 type="submit"
                 elevation="0"
               >
-                Save
+                Сақтау
               </v-btn>
             </v-col>
           </v-form>
@@ -49,7 +49,7 @@
               <v-file-input
                 v-model="user.avatar"
                 prepend-icon="mdi-account-edit"
-                label="Upload profile photo"
+                label="Профиль фотосы"
                 outlined
                 accept="image/*"
               ></v-file-input>
@@ -58,7 +58,7 @@
               <v-file-input
                 v-model="user.cover_image"
                 prepend-icon="mdi-arrange-send-backward"
-                label="Upload cover image"
+                label="Артқы сурет"
                 outlined
                 accept="image/*"
               ></v-file-input>
@@ -72,7 +72,7 @@
                 type="submit"
                 elevation="0"
               >
-                Save
+                Сақтау
               </v-btn>
             </v-col>
           </v-form>
@@ -95,7 +95,7 @@
                 color="#BDBDBD"
                 disabled
               >
-                Save
+                Сақтау
               </v-btn>
             </v-col>
           </v-form>
@@ -126,7 +126,7 @@
                 dark
                 elevation="0"
               >
-                Save
+                Сақтау
               </v-btn>
             </v-col>
           </v-form>
@@ -144,17 +144,17 @@
                 v-bind="attrs"
                 v-on="on"
               >
-                Delete account
+                Аккаунт жою
               </v-btn>
             </template>
             <v-card d-flex justify="center" align="center">
               <v-card-title class="headline">
-                Are you sure you want to delete your account?
+                Сіз аккаунт жоюға расында сенімдімісіз бе?
               </v-card-title>
               <v-card-text
-                >You will no longer have access to your classes or participants.
-                This action can’t be undone.</v-card-text
-              >
+                >Бұдан кейін сіз сабақтар мен материалдарды көре алмайсыз. Бұл
+                қайтарылмайтын әрекет.
+              </v-card-text>
               <v-card-actions>
                 <v-btn
                   width="100%"
@@ -163,7 +163,7 @@
                   color="red"
                   @click="dialog = false"
                 >
-                  Delete
+                  Жою
                 </v-btn>
               </v-card-actions>
               <v-card-actions>
@@ -174,7 +174,7 @@
                   outlined
                   @click="dialog = false"
                 >
-                  Cancel
+                  Артқа
                 </v-btn>
               </v-card-actions>
             </v-card>

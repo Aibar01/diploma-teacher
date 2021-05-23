@@ -16,7 +16,7 @@
           >
         </v-list-item-content>
         <v-list-item-content v-else>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title>Профиль</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -43,11 +43,11 @@
             <v-list-item-title>
               <v-dialog v-model="dialog" persistent max-width="600px">
                 <template #activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">Create Class</div>
+                  <div v-bind="attrs" v-on="on">Сабақ ашу</div>
                 </template>
                 <v-card>
                   <v-card-title class="d-flex justify-center">
-                    <span class="headline">Create a class</span>
+                    <span class="headline">Сынып құрастыру</span>
                   </v-card-title>
                   <v-divider class="pt-5"></v-divider>
                   <v-card-text>
@@ -55,30 +55,27 @@
                       <v-row>
                         <v-col cols="12">
                           <v-text-field
-                            label="Class name"
-                            placeholder="Enter class name"
+                            label="Сынып аты"
+                            placeholder="Сынып аты"
                             outlined
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12">
                           <v-text-field
-                            label="Subject"
-                            placeholder="Enter subject name"
+                            label="Сабақ"
+                            placeholder="Сабақ аты"
                             outlined
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" class="pt-0">
-                          <v-radio-group label="Type of class" class="mt-0">
+                          <v-radio-group label="Сынып түрі" class="mt-0">
                             <div class="d-flex align-start">
                               <v-radio
                                 class="pr-5"
-                                label="Public"
+                                label="Ашық"
                                 value="Public"
                               ></v-radio>
-                              <v-radio
-                                label="Private"
-                                value="Private"
-                              ></v-radio>
+                              <v-radio label="Жабық" value="Private"></v-radio>
                             </div>
                           </v-radio-group>
                         </v-col>
@@ -92,7 +89,7 @@
                       class="text-capitalize"
                       @click="dialog = false"
                     >
-                      Save
+                      Құрастыру
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -113,18 +110,16 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider v-model="model" color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize" @click="goLink('stream')">
-          Stream
-        </v-tab>
+        <v-tab class="text-capitalize" @click="goLink('stream')"> Жалпы </v-tab>
         <v-tab class="text-capitalize" @click="goLink('classwork')"
-          >Classwork</v-tab
+          >Сынып жұмысы</v-tab
         >
-        <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('people')">Адамдар</v-tab>
         <!-- <v-tab class="text-capitalize" @click="goLink('classwork')"
           >Grades</v-tab
         > -->
         <v-tab class="text-capitalize" @click="goLink('about')"
-          >About class</v-tab
+          >Сынып туралы</v-tab
         >
       </v-tabs>
       <v-spacer />
@@ -140,12 +135,12 @@
         class="text-capitalize"
         :to="`add-student`"
       >
-        Invite people
+        Адамдарды шақыру
       </v-btn>
       <v-text-field
         v-else
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>
@@ -168,12 +163,12 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },

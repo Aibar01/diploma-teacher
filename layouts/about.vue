@@ -10,7 +10,8 @@
       <v-list-item class="py-2">
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
-            <v-icon>mdi-arrow-left</v-icon><NuxtLink to="/"> Back </NuxtLink>
+            <v-icon>mdi-arrow-left</v-icon
+            ><NuxtLink to="/"> Артқа қайту </NuxtLink>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -43,15 +44,15 @@
       <v-toolbar-title
         v-if="$route.path.includes('faq')"
         class="font-weight-bold"
-        >Frequently Asked Questions</v-toolbar-title
+        >Жиі қойылатын сұрақтар</v-toolbar-title
       >
       <v-toolbar-title v-else class="font-weight-bold"
-        >About App</v-toolbar-title
+        >Контактілер</v-toolbar-title
       >
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>
@@ -73,7 +74,7 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'FAQ',
+          title: 'ЖҚС',
           to: '/settings/faq',
         },
         {

@@ -23,7 +23,7 @@
                   <v-text-field
                     v-model="announcement"
                     required
-                    label="Announce something to class"
+                    label="Хабарлама айтыңыз"
                   ></v-text-field>
                 </div>
                 <v-btn
@@ -32,7 +32,7 @@
                   class="text-capitalize ml-5"
                   type="submit"
                   elevation="0"
-                  >Announce</v-btn
+                  >Жіберу</v-btn
                 >
               </div>
             </v-form>
@@ -42,14 +42,14 @@
     </v-card>
     <v-card v-if="announcements == []" max-width="500" outlined>
       <v-card-text>
-        <p class="headline text--primary">Communicate with your students</p>
+        <p class="headline text--primary">Оқұшылармен жұмыс жасаңыз</p>
         <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Create
-          and schedule announcements
+          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon
+          >Материалдар қосыңыз
         </p>
         <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Respond
-          to student posts
+          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon
+          >Студенттерге жауап беріңіз
         </p>
       </v-card-text>
     </v-card>
@@ -103,12 +103,12 @@
                           v-on="on"
                           @click="editText = item.annoucment_text"
                         >
-                          Edit
+                          Өзгерту
                         </v-list-item-title>
                       </template>
                       <v-card>
                         <v-card-title>
-                          <span class="headline">Edit announcements</span>
+                          <span class="headline">Өзгерту</span>
                         </v-card-title>
                         <v-card-text>
                           <v-container>
@@ -116,13 +116,12 @@
                               <v-col cols="12">
                                 <v-text-field
                                   v-model="editText"
-                                  label="Edit announcement*"
+                                  label="Өзгерту"
                                   required
                                 ></v-text-field>
                               </v-col>
                             </v-row>
                           </v-container>
-                          <small>*indicates required field</small>
                         </v-card-text>
                         <v-card-actions>
                           <v-spacer></v-spacer>
@@ -131,7 +130,7 @@
                             class="text-capitalize"
                             @click="editDialog = false"
                           >
-                            Cancel
+                            Болдырмау
                           </v-btn>
                           <v-btn
                             color="#10AFA7"
@@ -139,7 +138,7 @@
                             class="text-capitalize"
                             @click="editAnnouncment(item.id)"
                           >
-                            Edit
+                            Өзгерту
                           </v-btn>
                         </v-card-actions>
                       </v-card>
@@ -149,14 +148,14 @@
                     <v-dialog v-model="dialog" persistent max-width="300">
                       <template #activator="{ on, attrs }">
                         <v-list-item-title v-bind="attrs" v-on="on"
-                          >Delete</v-list-item-title
+                          >Жою</v-list-item-title
                         >
                       </template>
                       <v-card>
                         <v-card-title class="headline">
-                          Delete announcement?
+                          Хабарламаны жою?
                         </v-card-title>
-                        <v-card-text>This action is unrecoveravle.</v-card-text>
+                        <v-card-text>Бұл кайтарылмайтын әрекет.</v-card-text>
                         <v-card-actions>
                           <v-spacer></v-spacer>
                           <v-btn
@@ -164,7 +163,7 @@
                             class="text-capitalize"
                             @click="dialog = false"
                           >
-                            Cancel
+                            Болдырмау
                           </v-btn>
                           <v-btn
                             color="#10AFA7"
@@ -172,7 +171,7 @@
                             class="text-capitalize"
                             @click="deleteAnnouncment(item.id)"
                           >
-                            Delete
+                            Жою
                           </v-btn>
                         </v-card-actions>
                       </v-card>

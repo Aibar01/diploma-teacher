@@ -43,9 +43,10 @@
                 >{{ $auth.user.first_name }}
                 {{ $auth.user.last_name }}</v-card-subtitle
               >
-              <v-card-subtitle class="pt-2"
-                >Programming мұғалым</v-card-subtitle
+              <v-card-subtitle v-if="$auth.user.user_type" class="pt-2"
+                >Мұғалым</v-card-subtitle
               >
+              <v-card-subtitle v-else class="pt-2">Оқушы</v-card-subtitle>
               <v-divider></v-divider>
               <v-card-text d-flex align="start">
                 {{ $auth.user.bio }}
@@ -57,7 +58,7 @@
                   text
                   @click="$router.push('/profile/settings')"
                 >
-                  <strong> Edit Profile </strong>
+                  <strong> Профиль өзгерту </strong>
                 </v-btn>
               </v-card-text>
             </div>

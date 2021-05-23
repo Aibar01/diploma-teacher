@@ -27,20 +27,19 @@
             <v-text-field
               v-model="news.title"
               class="text-h4 font-weight-bold"
-              placeholder="Add title"
+              placeholder="Тақырып"
               required
             ></v-text-field>
             <v-file-input
               v-model="news.main_image"
               :rules="rules"
               accept="image/png, image/jpeg, image/bmp"
-              placeholder="Pick an image"
               prepend-icon="mdi-camera"
             ></v-file-input>
             <v-textarea
               v-model="news.text"
               required
-              placeholder="Type something"
+              placeholder="Бірнәрсе жазыңыз..."
             ></v-textarea>
             <v-btn
               dark
@@ -48,7 +47,7 @@
               class="text-capitalize"
               type="submit"
               elevation="0"
-              >Share news</v-btn
+              >Бөлісу</v-btn
             >
           </v-form>
         </v-card-actions>

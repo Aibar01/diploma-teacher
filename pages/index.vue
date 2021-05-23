@@ -3,18 +3,18 @@
     <NoActivites v-if="noActivites" />
     <div v-else>
       <div v-if="$auth.loggedIn" class="d-flex align-center ml-16 mt-10">
-        <div class="headline">Discovered something new?</div>
+        <div class="headline">Жаңа бірдеңе біліп алдыңыз ба?</div>
         <v-btn
           to="news/create"
           dark
           color="#10AFA7"
           class="text-capitalize ml-12"
           elevation="0"
-          >Share news</v-btn
+          >Бөлісу</v-btn
         >
       </div>
       <div class="ml-12 mt-10">
-        <div class="text-uppercase">Other Teachers Sharing</div>
+        <div class="text-uppercase">Адамдардың бөліскені</div>
       </div>
       <div v-for="item in items.results" :key="item.id">
         <PostList :item="item" />

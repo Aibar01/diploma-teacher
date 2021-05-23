@@ -36,11 +36,11 @@
             <v-list-item-title>
               <v-dialog v-model="dialog" persistent max-width="600px">
                 <template #activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">Create Class</div>
+                  <div v-bind="attrs" v-on="on">Сабақ ашу</div>
                 </template>
                 <v-card>
                   <v-card-title class="d-flex justify-center">
-                    <span class="headline">Create a class</span>
+                    <span class="headline">Сабақ ашу</span>
                   </v-card-title>
                   <v-divider class="pt-5"></v-divider>
                   <v-card-text>
@@ -112,7 +112,7 @@
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>
@@ -135,12 +135,12 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },

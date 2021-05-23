@@ -4,7 +4,7 @@
       <v-card outlined class="ml-3 mr-auto" max-width="400">
         <v-list-item two-line>
           <v-list-item-content>
-            <v-list-item-title class="headline"> Classes </v-list-item-title>
+            <v-list-item-title class="headline"> Сыныптар </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -15,23 +15,23 @@
                 <v-col class="display-3" cols="12">{{
                   $auth.user.number_of_classes
                 }}</v-col>
-                <v-col cols="12">Classes</v-col>
+                <v-col cols="12">Сыныптар</v-col>
               </v-row>
             </v-col>
             <v-col cols="6">
               <v-row>
-                <v-col cols="12">Public</v-col>
+                <v-col cols="12">Ашық</v-col>
                 <v-col cols="12" class="body-1 pt-0">
                   <strong
-                    >{{ $auth.user.number_of_public_classes }} class</strong
+                    >{{ $auth.user.number_of_public_classes }} сынып</strong
                   >
                 </v-col>
               </v-row>
               <v-row>
-                <v-col cols="12">Private</v-col>
+                <v-col cols="12">Жабық</v-col>
                 <v-col cols="12" class="body-1 pt-0">
                   <strong
-                    >{{ $auth.user.number_of_private_classes }} classes</strong
+                    >{{ $auth.user.number_of_private_classes }} сынып</strong
                   >
                 </v-col>
               </v-row>

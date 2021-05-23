@@ -11,7 +11,7 @@
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
             <nuxt-link color="#fff" :to="`/class/${$route.params.id}/classwork`"
-              ><v-icon>mdi-arrow-left</v-icon> Back</nuxt-link
+              ><v-icon>mdi-arrow-left</v-icon> Артқа қайту</nuxt-link
             >
           </v-list-item-title>
         </v-list-item-content>
@@ -47,7 +47,7 @@
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>

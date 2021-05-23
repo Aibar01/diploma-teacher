@@ -28,7 +28,7 @@
           >
         </v-list-item-content>
         <v-list-item-content v-else>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title>Профиль</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -55,12 +55,12 @@
             <v-list-item-title>
               <v-dialog v-model="classDialog" max-width="600px">
                 <template #activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">Create Class</div>
+                  <div v-bind="attrs" v-on="on">Сабақ ашу</div>
                 </template>
                 <v-card>
                   <v-form @submit.prevent="createClass">
                     <v-card-title class="d-flex justify-center">
-                      <span class="headline">Create a class</span>
+                      <span class="headline">Сабақ ашу</span>
                     </v-card-title>
                     <v-divider class="pt-5"></v-divider>
                     <v-card-text>
@@ -155,13 +155,13 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize">Feed</v-tab>
+        <v-tab class="text-capitalize">Басты бет</v-tab>
         <!-- <v-tab class="text-capitalize">Students Activity</v-tab> -->
       </v-tabs>
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
 
@@ -306,17 +306,17 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },
         {
-          title: 'About',
+          title: 'Көмек',
           icon: 'mdi-information',
           to: '/settings/about',
         },

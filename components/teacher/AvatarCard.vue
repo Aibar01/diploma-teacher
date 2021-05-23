@@ -7,6 +7,12 @@
     >
     </v-img>
     <v-card-title class="pb-0 subtitle-2"> Али Osman </v-card-title>
-    <v-card-subtitle class="pt-4 caption"> Programming оқушы </v-card-subtitle>
+    <v-card-subtitle
+      v-if="$auth.user.user_type === 'teacher'"
+      class="pt-4 caption"
+    >
+      Мұғалім
+    </v-card-subtitle>
+    <v-card-subtitle v-else class="pt-4 caption"> Оқушы </v-card-subtitle>
   </v-card>
 </template>

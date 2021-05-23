@@ -11,7 +11,7 @@
         <v-form @submit.prevent="createItem(item.title)">
           <v-card-title class="pl-10">
             <span class="headline font-weight-bold"
-              >Create {{ item.title }}</span
+              >{{ item.title }} құрастыру</span
             >
           </v-card-title>
           <v-card-text>
@@ -21,8 +21,8 @@
                   <v-text-field
                     v-model="newItem.title"
                     outlined
-                    label="Title"
-                    placeholder="Enter title"
+                    label="Тақырып"
+                    placeholder="Тақырып"
                     required
                   ></v-text-field>
                 </v-col>
@@ -31,15 +31,15 @@
                     v-model="newItem.description"
                     outlined
                     name="input-7-4"
-                    label="Description"
-                    placeholder="(optional)"
+                    label="Сипаттама"
+                    placeholder="(қосымша)"
                   ></v-textarea>
                 </v-col>
                 <v-col cols="12" class="d-flex">
                   <v-file-input
                     v-model="newItem.uploaded_file"
                     color="#10AFA7"
-                    label="Add"
+                    label="Қосу"
                     outlined
                   ></v-file-input>
                 </v-col>
@@ -56,7 +56,7 @@
                     <template #activator="{ on, attrs }">
                       <v-text-field
                         v-model="date"
-                        label="Due date"
+                        label="Дейін уақыт"
                         prepend-icon="mdi-calendar"
                         readonly
                         v-bind="attrs"
@@ -66,14 +66,14 @@
                     <v-date-picker v-model="date" no-title scrollable>
                       <v-spacer></v-spacer>
                       <v-btn text color="#10AFA7" @click="menu = false">
-                        Cancel
+                        Болдырмау
                       </v-btn>
                       <v-btn
                         text
                         color="#10AFA7"
                         @click="$refs.menu.save(date)"
                       >
-                        OK
+                        Құрастыру
                       </v-btn>
                     </v-date-picker>
                   </v-menu>
@@ -90,7 +90,7 @@
                     <template #activator="{ on, attrs }">
                       <v-text-field
                         v-model="time"
-                        label="Due time"
+                        label="Дейін уақыт"
                         prepend-icon="mdi-watch"
                         readonly
                         v-bind="attrs"
@@ -100,7 +100,7 @@
                     <v-time-picker v-model="time" ampm-in-title format="ampm">
                       <v-spacer></v-spacer>
                       <v-btn text color="#10AFA7" @click="menu2 = false">
-                        OK
+                        Құрастыру
                       </v-btn>
                     </v-time-picker>
                   </v-menu>
@@ -116,7 +116,7 @@
               dark
               type="submit"
             >
-              Create lesson
+              Құрастыру
             </v-btn>
             <v-btn
               elevation="0"
@@ -124,7 +124,7 @@
               text
               @click="dialog = false"
             >
-              Cancel
+              Болдырмау
             </v-btn>
           </v-card-actions>
         </v-form>

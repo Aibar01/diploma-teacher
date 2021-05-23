@@ -2,7 +2,7 @@
   <v-card class="pl-5 pt-5" elevation="0" max-width="700">
     <v-form @submit.prevent="aboutClass">
       <v-row>
-        <v-col class="font-weight-bold text-uppercase">About course</v-col>
+        <v-col class="font-weight-bold text-uppercase">Жалпы</v-col>
         <v-col>
           <v-textarea
             v-model="item.about_course"
@@ -14,7 +14,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col class="font-weight-bold text-uppercase">Syllabus</v-col>
+        <v-col class="font-weight-bold text-uppercase">Силлабус</v-col>
         <v-col>
           <v-combobox
             v-model="item.syllabus"
@@ -25,7 +25,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col class="font-weight-bold text-uppercase">Teacher</v-col>
+        <v-col class="font-weight-bold text-uppercase">Мұғалім</v-col>
         <v-col>
           <v-card elevation="0" max-width="800">
             <v-card-title class="pt-0">
@@ -61,7 +61,7 @@
           dark
           type="submit"
         >
-          Save
+          Сақтау
         </v-btn>
       </v-card-actions>
     </v-form>

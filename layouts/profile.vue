@@ -11,7 +11,7 @@
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
             <v-icon>mdi-arrow-left</v-icon
-            ><NuxtLink to="/profile"> Back </NuxtLink>
+            ><NuxtLink to="/profile"> Артқа қайту </NuxtLink>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -35,7 +35,7 @@
       app
     >
       <v-toolbar-title class="font-weight-bold headline"
-        >Profile Settings</v-toolbar-title
+        >Профиль өзгерту</v-toolbar-title
       >
 
       <v-spacer></v-spacer>
@@ -59,7 +59,7 @@ export default {
       fixed: true,
       items: [
         { title: 'Profile', icon: 'mdi-view-dashboard' },
-        { title: 'Notifications', icon: 'mdi-image' },
+        { title: 'Хабарлама', icon: 'mdi-image' },
       ],
       miniVariant: false,
       right: true,

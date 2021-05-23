@@ -22,7 +22,7 @@
               ></v-img>
               <v-card-title> {{ item.class_name }} </v-card-title>
 
-              <v-card-subtitle> Recommended </v-card-subtitle>
+              <v-card-subtitle> Ұсынылған </v-card-subtitle>
             </v-card>
           </v-item>
         </v-col>

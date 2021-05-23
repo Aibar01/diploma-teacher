@@ -27,9 +27,7 @@
       <v-col cols="3">
         <v-card class="mx-auto" color="#F8F8F8" max-width="400">
           <v-card-title>
-            <span class="body-2 font-weight-light"
-              >Didn’t find answers for your questions?</span
-            >
+            <span class="body-2 font-weight-light">Сұрақ қою</span>
           </v-card-title>
 
           <v-card-text>
@@ -44,15 +42,15 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    Contact us
+                    Хабарлау
                   </v-btn>
                 </template>
                 <v-card d-flex justify="center" align="center">
                   <v-form @submit.prevent="createQuestion">
                     <v-card-title class="py-10 px-12">
                       <span class="headline">
-                        Tell us your problem and we will make anything to help
-                        you!
+                        Бізге өз проблемаңызды айтыңыз, біз сізге көмектесу үшін
+                        бәрін жасаймыз!
                       </span>
                     </v-card-title>
                     <v-divider></v-divider>
@@ -62,8 +60,8 @@
                           <v-col cols="12">
                             <v-text-field
                               v-model="question.name"
-                              label="Your name"
-                              placeholder="Enter your name"
+                              label="Сіздің атыңыз"
+                              placeholder="Сіздің атыңыз"
                               outlined
                               required
                             ></v-text-field>
@@ -72,8 +70,8 @@
                             <v-textarea
                               v-model="question.problem"
                               outlined
-                              placeholder="Describe your problem"
-                              label="How can we help you?"
+                              placeholder="Сіздің проблемаңызды сипаттаңыз"
+                              label="Сіздің проблемаңызды сипаттаңыз"
                               required
                             ></v-textarea>
                           </v-col>
@@ -91,7 +89,7 @@
                         dark
                         type="submit"
                       >
-                        Send
+                        Жіберу
                       </v-btn>
                     </v-card-actions>
                   </v-form>

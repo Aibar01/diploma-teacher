@@ -29,6 +29,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -38,12 +39,28 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
+    '@aceforth/nuxt-optimized-images',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://185.111.106.155/', // Used as fallback if no runtime config is provided
   },
+
+  image: {
+    // Options
+  },
+
+  optimizedImages: {
+    optimizeImages: true,
+  },
+
+  loaders: [
+    {
+      test: /\.(jpe?g|png)$/i,
+      loaders: ['file-loader', 'webp-loader'],
+    },
+  ],
 
   moment: {
     timezone: true,

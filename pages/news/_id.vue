@@ -6,7 +6,7 @@
           <div>
             <NuxtLink to="/" prefetch class="d-flex align-center">
               <v-icon>mdi-arrow-left</v-icon>
-              <div class="text-capitalize font-weight-bold">Back to Main</div>
+              <div class="text-capitalize font-weight-bold">Артқа қайту</div>
             </NuxtLink>
           </div>
         </v-col>

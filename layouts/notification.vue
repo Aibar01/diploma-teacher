@@ -11,7 +11,7 @@
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
             <v-icon>mdi-arrow-left</v-icon
-            ><NuxtLink to="/profile"> Back </NuxtLink>
+            ><NuxtLink to="/profile"> Артқа қайту </NuxtLink>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -41,11 +41,11 @@
       color="#fff"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class="font-weight-bold">Notifications</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold">Хабарлама</v-toolbar-title>
       <v-spacer />
       <v-text-field
         class="pt-4 pr-6"
-        label="Search classes, teachers"
+        label="Курсты іздеу"
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>
@@ -67,12 +67,12 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },

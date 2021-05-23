@@ -24,7 +24,7 @@
     <v-card-actions>
       <v-btn color="black" class="text-capitalize" text>
         <NuxtLink :to="`/news/${item.id}`">
-          <strong> Read more </strong>
+          <strong> Толығырақ оқу </strong>
         </NuxtLink>
       </v-btn>
       <v-spacer></v-spacer>

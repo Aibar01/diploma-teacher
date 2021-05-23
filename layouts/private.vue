@@ -36,11 +36,11 @@
             <v-list-item-title>
               <v-dialog v-model="dialog" persistent max-width="600px">
                 <template #activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">Create Class</div>
+                  <div v-bind="attrs" v-on="on">Сабақ ашу</div>
                 </template>
                 <v-card>
                   <v-card-title class="d-flex justify-center">
-                    <span class="headline">Create a class</span>
+                    <span class="headline">Сабақ ашу</span>
                   </v-card-title>
                   <v-divider class="pt-5"></v-divider>
                   <v-card-text>
@@ -106,19 +106,19 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize" @click="goLink('stream')">Stream</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('stream')">Жалпы</v-tab>
         <v-tab class="text-capitalize" @click="goLink('classwork')"
-          >Classwork</v-tab
+          >Сынып жұмысы</v-tab
         >
-        <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
-        <v-tab class="text-capitalize" @click="goLink('stream')">Grades</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('people')">Адамдар</v-tab>
+        <!-- <v-tab class="text-capitalize" @click="goLink('stream')">Grades</v-tab> -->
         <v-tab class="text-capitalize" @click="goLink('about')"
-          >About class</v-tab
+          >Сынып туралы</v-tab
         >
       </v-tabs>
       <v-spacer />
       <v-btn color="#10AFA7" dark class="text-capitalize">
-        Invite people
+        Адамдарды шақыру
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -140,12 +140,12 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },

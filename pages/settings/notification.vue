@@ -3,15 +3,7 @@
     <v-row>
       <v-col style="display: flex" class="pb-0">
         <v-checkbox id="notification" class="pd-0 mt-0" />
-        <label for="notification">Send Push-notifications</label>
-      </v-col>
-    </v-row>
-    <v-row class="mt-0">
-      <v-col class="pt-0 ml-9">
-        <p class="caption">
-          Allow us to send you notifications in order to help you to submit all
-          homeworks.
-        </p>
+        <label for="notification">Push-notifications жіберу</label>
       </v-col>
     </v-row>
   </v-container>
@@ -19,9 +11,7 @@
 
 <script>
 export default {
-  layout(context) {
-    return 'profile'
-  },
+  layout: 'profile',
 }
 </script>
 

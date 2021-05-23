@@ -26,8 +26,8 @@
     <v-row>
       <v-col cols="6" class="d-flex">
         <v-btn color="#10AFA7" class="text-capitalize" outlined>
-          <v-icon class="pr-2" dense>mdi-plus-circle-outline</v-icon> More
-          students</v-btn
+          <v-icon class="pr-2" dense>mdi-plus-circle-outline</v-icon> Көбірек
+          оқушылар</v-btn
         >
         <v-spacer></v-spacer>
 
@@ -40,13 +40,13 @@
               v-bind="attrs"
               v-on="on"
             >
-              Invite student
+              Адамдарды шақыру
             </v-btn>
           </template>
           <v-card>
             <v-form @submit.prevent="inviteStudent">
               <v-card-title class="justify-center">
-                <span class="headline">Invitation</span>
+                <span class="headline">Көбірек оқушы қосу</span>
               </v-card-title>
               <v-card-text>
                 <v-container>
@@ -60,7 +60,7 @@
                         chips
                         required
                         color="#10AFA7"
-                        label="Invite students"
+                        label="Адамдарды шақыру"
                         item-text="name"
                         item-value="name"
                         multiple
@@ -110,7 +110,7 @@
                   class="text-capitalize"
                   @click="dialog = false"
                 >
-                  Cancel
+                  Болдырмау
                 </v-btn>
                 <v-btn
                   :color="selectedStudents.length <= 0 ? '#EFEEEE' : '#10AFA7'"
@@ -119,7 +119,7 @@
                   :disabled="selectedStudents.length <= 0"
                   type="submit"
                 >
-                  Invite
+                  Шақыру
                 </v-btn>
               </v-card-actions>
             </v-form>

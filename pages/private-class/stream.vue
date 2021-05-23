@@ -62,20 +62,20 @@
                 </template>
                 <v-list>
                   <v-list-item>
-                    <v-list-item-title>Edit</v-list-item-title>
+                    <v-list-item-title>Өзгерту</v-list-item-title>
                   </v-list-item>
                   <v-list-item>
                     <v-dialog v-model="dialog" persistent max-width="300">
                       <template #activator="{ on, attrs }">
                         <v-list-item-title v-bind="attrs" v-on="on"
-                          >Delete</v-list-item-title
+                          >Жою</v-list-item-title
                         >
                       </template>
                       <v-card>
                         <v-card-title class="headline">
-                          Delete announcement?
+                          Хабарламаны жою
                         </v-card-title>
-                        <v-card-text>This action is unrecoveravle.</v-card-text>
+                        <v-card-text>Бұл кайтарылмайтын әрекет.</v-card-text>
                         <v-card-actions>
                           <v-spacer></v-spacer>
                           <v-btn
@@ -83,7 +83,7 @@
                             class="text-capitalize"
                             @click="dialog = false"
                           >
-                            Cancel
+                            Болдырмау
                           </v-btn>
                           <v-btn
                             color="#10AFA7"
@@ -91,7 +91,7 @@
                             class="text-capitalize"
                             @click="dialog = false"
                           >
-                            Delete
+                            Жою
                           </v-btn>
                         </v-card-actions>
                       </v-card>

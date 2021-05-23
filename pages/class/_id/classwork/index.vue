@@ -17,7 +17,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              <v-icon class="pr-2">mdi-plus-circle-outline</v-icon> Create
+              <v-icon class="pr-2">mdi-plus-circle-outline</v-icon> Құрастыру
             </v-btn>
           </template>
           <v-list>
@@ -31,14 +31,14 @@
 
     <v-card max-width="500" outlined>
       <v-card-text>
-        <p class="headline text--primary">Communicate with your students</p>
+        <p class="headline text--primary">Оқұшылармен жұмыс жасаңыз</p>
         <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Create
-          and schedule announcements
+          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon
+          >Материалдар қосыңыз
         </p>
         <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Respond
-          to student posts
+          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon
+          >Студенттерге жауап беріңіз
         </p>
       </v-card-text>
     </v-card>
@@ -87,14 +87,14 @@
                           v-on="on"
                           @click="editClasswork = { ...i }"
                         >
-                          Edit
+                          Өзгерту
                         </v-list-item-title>
                       </template>
                       <v-card>
                         <v-form @submit.prevent="updateClasswork(i.id)">
                           <v-card-title class="pl-10">
                             <span class="headline font-weight-bold"
-                              >Edit {{ editClasswork.title }}</span
+                              >Өзгерту {{ editClasswork.title }}</span
                             >
                           </v-card-title>
                           <v-card-text>
@@ -104,8 +104,8 @@
                                   <v-text-field
                                     v-model="editClasswork.title"
                                     outlined
-                                    label="Title"
-                                    placeholder="Enter title"
+                                    label="Тақырып"
+                                    placeholder="Тақырып"
                                     required
                                   ></v-text-field>
                                 </v-col>
@@ -114,15 +114,15 @@
                                     v-model="editClasswork.description"
                                     outlined
                                     name="input-7-4"
-                                    label="Description"
-                                    placeholder="(optional)"
+                                    label="Сипаттама"
+                                    placeholder="(қосымша)"
                                   ></v-textarea>
                                 </v-col>
                                 <v-col cols="12" class="d-flex">
                                   <v-file-input
                                     v-model="editClasswork.uploaded_file"
                                     color="#10AFA7"
-                                    label="Add"
+                                    label="Қосу"
                                     outlined
                                   ></v-file-input>
                                 </v-col>
@@ -139,7 +139,7 @@
                                     <template #activator="{ on, attrs }">
                                       <v-text-field
                                         v-model="date"
-                                        label="Due date"
+                                        label="Дейін уақыт"
                                         prepend-icon="mdi-calendar"
                                         readonly
                                         v-bind="attrs"
@@ -157,14 +157,14 @@
                                         color="#10AFA7"
                                         @click="editMenu = false"
                                       >
-                                        Cancel
+                                        Болдырмау
                                       </v-btn>
                                       <v-btn
                                         text
                                         color="#10AFA7"
                                         @click="$refs.menu.save(date)"
                                       >
-                                        OK
+                                        Құрастыру
                                       </v-btn>
                                     </v-date-picker>
                                   </v-menu>
@@ -199,7 +199,7 @@
                                         color="#10AFA7"
                                         @click="menu2 = false"
                                       >
-                                        OK
+                                        Құрастыру
                                       </v-btn>
                                     </v-time-picker>
                                   </v-menu>
@@ -215,7 +215,7 @@
                               dark
                               type="submit"
                             >
-                              Edit lesson
+                              Өзгерту
                             </v-btn>
                             <v-btn
                               elevation="0"
@@ -223,7 +223,7 @@
                               text
                               @click="editDialog = false"
                             >
-                              Cancel
+                              Болдырмау
                             </v-btn>
                           </v-card-actions>
                         </v-form>
@@ -318,9 +318,9 @@ export default {
       menu: false,
       menu2: false,
       items: [
-        { title: 'Lesson', icon: 'mdi-circle' },
-        { title: 'Homework', icon: 'mdi-circle' },
-        { title: 'Material', icon: 'mdi-circle' },
+        { title: 'Сабақ', icon: 'mdi-circle' },
+        { title: 'Ұй жұмысы', icon: 'mdi-circle' },
+        { title: 'Материал', icon: 'mdi-circle' },
       ],
     }
   },

@@ -9,7 +9,7 @@
           <v-spacer></v-spacer>
           <v-card-text>
             <v-btn color="#10AFA7" text class="text-capitalize">
-              Clear All
+              Тазалау
             </v-btn>
           </v-card-text>
         </v-card>
